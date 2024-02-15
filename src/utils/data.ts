@@ -9,7 +9,7 @@ export const about: About = {
 	name: "Gilbert James",
 	tags: ["Typescript", "Css"],
 	phone: "+23408140942783",
-	location: "Abia, Nigeria",
+	location: "Nigeria",
 };
 
 export const projects = [
@@ -137,5 +137,84 @@ export const projects = [
 			"https://ik.imagekit.io/xitvuuh9spa/live-search/Screen%20Shot%202024-02-11%20at%2022.35.37_bkwRy0_2p.webp?updatedAt=1707694021251",
 		],
 		href: "https://github.com/gilbertoaceville/bluecube-live-search-app",
+	},
+];
+
+export const experiences: Experience[] = [
+	{
+		id: 0,
+		company: "IFMACinema",
+		location: "Remote @Thuringia, Germany",
+		description: [
+			"- Enhanced investor confidence and secured over $100K in funding for the IFMA streaming web app by deploying cutting-edge technology, establishing performance metrics, and ensuring seamless functionality.",
+			"- Implemented strategic optimization techniques on existing code base, resulting in 20% improvement in page load times.",
+			"- Led the development of features for the second version of the streaming web app by collaborating with product team.",
+			"- Reduced CI/CD deploy times on AWS infrastructure by 75% by accelerating feature delivery and improvements",
+			"- Streamlined the development workflow through strategic code reviews, contributing to increased efficiency.",
+		],
+		endDate: "Present",
+		startDate: "10/2020",
+		title: "Frontend Engineer",
+		tags: ["Nodejs", "MongoDB", "AWS", "Next.js"],
+		extraTags: ["Frontend"],
+		summary:
+			"Improve user experience and interface responsiveness by developing and implementing innovative frontend solutions. Collaborate closely with design team to translate wireframes and mockups into functional, pixel-perfect web applications. Optimize website performance by identifying and resolving issues related to page load speed, rendering, and responsiveness. Integrate frontend components and APIs for data flow and functionality. Conduct testing and debugging of frontend applications to identify and resolve software defects.",
+	},
+	{
+		id: 1,
+		company: "Bejamas",
+		location: "Remote @Wroclaw, Poland",
+		description: [
+			"- Researched and spearheaded development of climate-sustainable web projects, including Dodonut project, achieving reduction of >80% in website carbon emissions per page visit.",
+			"- Developed and maintained services through Headless CMS, adhering to Agile, SCRUM, and Kanban methodologies, leading to 80% increase in customer retention.",
+			"- Played a pivotal role in the planning and execution of high-performance website applications within the team, directly contributing to the company's impressive revenue growth from $1M to $4M in the first half of 2023.",
+			"- Optimized web performance on finalized projects by over 55%, utilizing tools such as WebPageTest and Statsy for precise analysis and actionable insights; significantly reducing user bounce rate and enhancing user engagement.",
+		],
+		endDate: "02/2022",
+		startDate: "12/2024",
+		title: "Frontend Developer",
+		tags: [],
+		extraTags: [],
+		summary: "",
+	},
+	{
+		id: 2,
+		company: "LearnFactory",
+		location: "Abia, Nigeria",
+		description: [
+			"- Amplified customer requests for mobile/web applications by 20% with the aim of achieving consumer goals.",
+			"- Elevated mobile traffic by 11% via the implementation of standardized, responsive, & mobile-first approach across all outputs.",
+		],
+		endDate: "10/2021",
+		startDate: "03/2021",
+		title: "Frontend Engineer",
+		tags: [],
+		extraTags: [],
+		summary: "",
+	},
+	{
+		id: 3,
+		company: "Vicmie Corp",
+		location: "Abia, Nigeria",
+		description: [
+			"- Primarily leveraged the MERN stack and worked closely with technical staff to develop complete enterprise website applications.",
+			"- Implemented timely error analysis, resulting in 15% reduction in downtime and uninterrupted flow of critical processes.",
+			"- Commended by management for accomplishing daily tasks on time, ensuring smooth business operations.",
+		],
+		endDate: "10/2020",
+		startDate: "01/2020",
+		title: "Web Developer",
+		tags: [],
+		extraTags: [],
+		summary: "",
+	},
+];
+
+export const educations: Education[] = [
+	{
+		id: 1,
+		degree: "B.Sc. (Hons) in Computer Science",
+		endDate: "08/2017",
+		school: "Abia State University, Uturu",
 	},
 ];

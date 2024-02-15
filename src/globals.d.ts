@@ -4,9 +4,10 @@ type Experience = {
 	id: number;
 	title: string;
 	company: string;
-	startDate: Date;
-	endDate: Date | null;
+	startDate: string;
+	endDate: string;
 	summary: string;
+	location: string;
 	description: string[];
 	tags: string[];
 	extraTags?: string[];
@@ -59,7 +60,7 @@ type Education = {
 	id: number;
 	school: string;
 	degree: string;
-	endDate: Date;
+	endDate: string;
 };
 
 type Job = {

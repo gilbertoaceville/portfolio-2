@@ -62,8 +62,8 @@ export default async function Page() {
 				</div>
 			</div>
 			<p className="text-sm">{about.description}</p>
-			{/* <Experiences /> */}
-			{/* <Educations /> */}
+			<Experiences />
+			<Educations />
 			<Projects />
 		</div>
 	);

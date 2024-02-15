@@ -1,16 +1,11 @@
-import { getAllEducations } from "@/models/education.server";
+import { educations } from "@/utils/data";
 
 export default async function Educations() {
-	const educations = await getAllEducations("endDate");
 	return (
 		<div className="space-y-2">
 			<div className="text-xl font-semibold">Education</div>
 			<div className="space-y-4">
 				{educations.map(education => {
-					const endDate = education.endDate
-						? new Date(education.endDate)
-						: null;
-
 					return (
 						<div key={education.id}>
 							<div className="flex flex-col gap-1 pb-2 sm:flex-row sm:justify-between sm:gap-2">
@@ -21,12 +16,7 @@ export default async function Educations() {
 									<div>{education.degree}</div>
 								</div>
 								<p className="text-secondary-foreground">
-									{endDate
-										? endDate.getUTCMonth() +
-											1 +
-											"/" +
-											endDate.getUTCFullYear()
-										: "Present"}
+									{education.endDate}
 								</p>
 							</div>
 						</div>
