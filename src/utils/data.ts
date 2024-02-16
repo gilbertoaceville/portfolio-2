@@ -32,10 +32,11 @@ export const projects = [
 	},
 	{
 		id: 1,
-		title: "Portfolio",
+		title: "Portfolio v1",
 		company: "personal",
-		date: "02/2024",
-		description: "Introducing my personal website!",
+		date: "12/2023",
+		description:
+			"Introducing the first version of my personal website built with Next14!",
 		info: "Introducing my personal website! Expect updates on my experiences, upcoming projects, and tags articles.",
 		tags: ["Typescript", "NextJS", "TailwindCSS"],
 		images: [
