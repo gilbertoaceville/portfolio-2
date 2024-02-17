@@ -1,6 +1,6 @@
 import type { Block, Inline } from "@contentful/rich-text-types";
 
-import styles from "../rich-text.module.scss";
+import styles from "../rich-text.module.css";
 
 const Paragraph = (node: Block | Inline, children: React.ReactNode) => {
 	const paragraphs = (Array.isArray(children) ? children : [children]).filter(

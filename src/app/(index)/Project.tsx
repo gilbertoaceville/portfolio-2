@@ -4,8 +4,10 @@ import { usePlausible } from "next-plausible";
 import Image from "next/image";
 
 import TagList from "@/components/TagList";
+import { ProjectElement } from "@/lib/contentful/types/project-element";
+import { TagElement } from "@/lib/contentful/types/tag-element";
 
-export default function Project({ project }: { project: Project }) {
+export default function Project({ project }: { project: ProjectElement }) {
 	const plausible = usePlausible();
 
 	return (
@@ -25,7 +27,7 @@ export default function Project({ project }: { project: Project }) {
 				<Image
 					width={800}
 					height={400}
-					src={project?.images[0]}
+					src={project?.images[0].url}
 					alt={"Preview " + project?.title + ".png"}
 					className="aspect-video h-auto w-full select-none rounded border border-border bg-neutral-100 shadow-sm sm:h-40"
 				/>
@@ -47,7 +49,7 @@ export default function Project({ project }: { project: Project }) {
 				{/* Description */}
 				<div>{project?.description}</div>
 
-				<TagList tags={project?.tags} />
+				<TagList tags={project?.tags as TagElement[]} />
 			</div>
 		</div>
 	);

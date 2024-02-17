@@ -16,7 +16,6 @@ function contentfulClient(preview?: boolean) {
 		environment: CONTENTFUL_ENVIRONMENT,
 		host: preview ? "preview.contentful.com" : "cdn.contentful.com",
 
-		// If we should resolve links between entries
 		// resolveLinks: true,
 		retryLimit: 5,
 		retryOnError: true,

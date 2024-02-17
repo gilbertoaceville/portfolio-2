@@ -6,7 +6,7 @@ import { homePageAdapter } from "../adapters/home-page";
 export async function getHomePage(locale?: string): Promise<HomePage | null> {
 	try {
 		const homePageData = await contentfulClient().getEntries({
-			content_type: "homePage",
+			content_type: "portfolioHome",
 			locale: parseLocaleCodeToLocale(locale),
 			limit: 1,
 			include: 10,

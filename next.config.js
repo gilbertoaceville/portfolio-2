@@ -14,15 +14,11 @@ const nextConfig = {
 		remotePatterns: [
 			{
 				protocol: "https",
-				hostname: "raw.githubusercontent.com",
-			},
-			{
-				protocol: "https",
-				hostname: "**.public.blob.vercel-storage.com",
-			},
-			{
-				protocol: "https",
 				hostname: "ik.imagekit.io",
+			},
+			{
+				protocol: "https",
+				hostname: "images.ctfassets.net",
 			},
 		],
 	},

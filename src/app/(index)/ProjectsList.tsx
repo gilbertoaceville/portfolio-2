@@ -1,21 +1,23 @@
-// import { getAllProjects } from "@/models/project.server";
-
 import SectionTitle from "./SectionTitle";
 import ProjectDialog from "@/components/dialogs/ProjectDialog";
 import Project from "./Project";
-import { projects } from "@/utils/data";
+import { Projects } from "@/lib/contentful/types/projects";
+import { ProjectElement } from "@/lib/contentful/types/project-element";
 
-const ID = "projects";
+interface ProjectProps {
+	title: string;
+	projects: ProjectElement[];
+}
 
-export default async function ProjectsList() {
+export default async function ProjectsList({ title, projects }: ProjectProps) {
 	return (
 		<section
-			id={ID}
+			id={title}
 			className="flex min-h-screen flex-col gap-4 py-2 sm:py-16 md:justify-between md:gap-8"
 		>
-			<SectionTitle id={ID} />
+			<SectionTitle id={title} />
 			<div className="grid grid-cols-12 gap-4 md:gap-6">
-				{projects?.map((p: Project, i: number) => (
+				{projects?.map((p, i) => (
 					<ProjectDialog
 						project={p}
 						className="col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-3"

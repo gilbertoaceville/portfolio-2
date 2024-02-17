@@ -1,11 +1,12 @@
 "use client";
 
+import { ProjectElement } from "@/lib/contentful/types/project-element";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { usePlausible } from "next-plausible";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function ImageCard({ project }: { project: Project }) {
+export default function ImageCard({ project }: { project: ProjectElement }) {
 	const plausible = usePlausible();
 	const [idx, setIdx] = useState(0);
 
@@ -27,11 +28,11 @@ export default function ImageCard({ project }: { project: Project }) {
 				className="flex transition-transform duration-300 ease-in-out"
 				style={{ transform: `translateX(-${idx * 100}%)` }}
 			>
-				{project.images.map((image, i) => (
+				{project?.images?.map((image, i) => (
 					<div key={i} className="w-full flex-shrink-0">
 						<Image
 							priority
-							src={image}
+							src={image.url}
 							alt={project.title}
 							width={1920}
 							height={1080}

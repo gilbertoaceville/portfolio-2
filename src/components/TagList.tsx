@@ -1,13 +1,14 @@
 import clsx from "clsx";
 
 import { Badge } from "./ui/badge";
+import { TagElement } from "@/lib/contentful/types/tag-element";
 
 export default function TagList({
 	tags,
 	className,
 	onClick,
 }: {
-	tags: string[];
+	tags: TagElement[];
 	className?: string;
 	onClick?: (tag: string) => void;
 }) {
@@ -20,13 +21,13 @@ export default function TagList({
 						variant="outline"
 						onClick={e => {
 							e.stopPropagation();
-							onClick(t);
+							onClick(t.value);
 						}}
 					>
-						{t}
+						{t.value}
 					</Badge>
 				) : (
-					<Badge key={"tag-" + i}>{t}</Badge>
+					<Badge key={"tag-" + i}>{t.value}</Badge>
 				)
 			)}
 		</div>

@@ -5,8 +5,8 @@ import clsx from "clsx";
 
 import "./styles.css";
 
-export const runtime = "edge";
-export const dynamic = "force-dynamic";
+// export const runtime = "edge";
+// export const dynamic = "force-dynamic";
 
 const inter = Inter({
 	subsets: ["latin"],

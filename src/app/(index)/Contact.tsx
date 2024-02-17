@@ -3,33 +3,28 @@ import ContactForm from "@/components/Forms/ContactForm";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import PageViews from "./PageViews";
+import type { Contact } from "@/lib/contentful/types/contact";
+interface ContactProps {
+	contact: Contact;
+}
 
-const ID = "contact";
-
-export default async function Contact() {
-	const contact = {
-		id: 1,
-		linkedin: "https://www.linkedin.com/in/james-gilbert-ace/",
-		github: "https://github.com/gilbertoaceville",
-		email: "gilbertoaceville@gmail.com",
-	};
-	const linkedInUsername = contact.linkedin
-		.replace(/\/$/, "")
-		.split("/")
-		.pop();
-	const githubUsername = contact.github.replace(/\/$/, "").split("/").pop();
+export default async function Contact({ contact }: ContactProps) {
+	const linkedInUsername = contact?.linkedIn
+		? contact.linkedIn.replace(/\/$/, "").split("/").pop()
+		: "";
+	const githubUsername = contact?.github?.replace(/\/$/, "").split("/").pop();
 
 	return (
 		<section
-			id={ID}
+			id={contact?.managementTitle}
 			className="flex min-h-screen flex-col gap-4 py-2 sm:py-16 md:gap-8"
 		>
-			<SectionTitle id={ID} />
+			<SectionTitle id={contact?.managementTitle || "Contact"} />
 			<div className="flex flex-col gap-4 md:mt-4 md:flex-row md:justify-between md:gap-8">
 				<div className="space-y-12 pb-8">
 					<div className="space-y-4">
-						<p>I am currently looking for new opportunities.</p>
-						<p>Feel free to reach out!</p>
+						<p>{contact?.description}</p>
+						<p>{contact?.subDescription}</p>
 					</div>
 					<div className="space-y-4">
 						<p>
@@ -38,20 +33,20 @@ export default async function Contact() {
 								className="hover:underline"
 								href={
 									"mailto:" +
-									contact.email +
+									contact?.email +
 									"?subject=Hello!"
 								}
 								target="_blank"
 								rel="noreferrer"
 							>
-								{contact.email}
+								{contact?.email}
 							</a>
 						</p>
 						<p>
 							LinkedIn:{" "}
 							<a
 								className="hover:underline"
-								href={contact.linkedin}
+								href={contact?.linkedIn}
 								target="_blank"
 								rel="noreferrer"
 							>
@@ -62,7 +57,7 @@ export default async function Contact() {
 							GitHub:{" "}
 							<a
 								className="hover:underline"
-								href={contact.github}
+								href={contact?.github}
 								target="_blank"
 								rel="noreferrer"
 							>

@@ -5,13 +5,14 @@ import Image from "next/image";
 
 import ImageCard from "@/components/cards/ImageCard";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
+import { ProjectElement } from "@/lib/contentful/types/project-element";
 
 export default function ImagesDialog({
 	project,
 	src,
 	alt,
 }: {
-	project: Project;
+	project: ProjectElement;
 	src: string;
 	alt: string;
 }) {

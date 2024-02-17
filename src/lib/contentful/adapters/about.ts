@@ -4,6 +4,7 @@ import { About } from "../types/about";
 import { tagElementAdapter } from "./tag-element";
 
 export const aboutAdapter = ({ fields }: IPortfolioAbout): About => {
+	console.log({ fields });
 	return replaceUndefinedWithNull({
 		managementTitle: fields.managementTitle,
 		id: fields.id,
@@ -14,7 +15,7 @@ export const aboutAdapter = ({ fields }: IPortfolioAbout): About => {
 		phone: fields.phone,
 		location: fields.location,
 		email: fields.email,
-		linkedin: fields.linkedin,
+		linkedin: fields.linkedIn,
 		github: fields.github,
 	});
 };

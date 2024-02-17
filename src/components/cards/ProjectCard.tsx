@@ -3,10 +3,13 @@ import clsx from "clsx";
 import TagList from "../TagList";
 import Markdown from "../Markdown";
 import ImagesDialog from "../dialogs/ImagesDialog";
+import { ProjectElement } from "@/lib/contentful/types/project-element";
+import { TagElement } from "@/lib/contentful/types/tag-element";
+import RichText from "../rich-text";
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({ project }: { project: ProjectElement }) {
 	const images = project?.images?.length
-		? project.images.filter(i => i.length > 0)
+		? project.images.filter(image => image.url)
 		: [];
 
 	return (
@@ -16,7 +19,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 				{images?.length > 0 && (
 					<ImagesDialog
 						project={project}
-						src={images[0]}
+						src={images[0].url}
 						alt={project.title}
 					/>
 				)}
@@ -48,9 +51,21 @@ export default function ProjectCard({ project }: { project: Project }) {
 					</div>
 
 					{/* Project Link */}
-					{project?.href && (
+					{project?.webUrl && (
 						<a
-							href={project.href}
+							href={project.webUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-neutral-600 hover:underline dark:text-neutral-300"
+						>
+							View Website
+						</a>
+					)}
+
+					{/* Github Link */}
+					{project?.githubUrl && (
+						<a
+							href={project.githubUrl}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="text-neutral-600 hover:underline dark:text-neutral-300"
@@ -60,12 +75,12 @@ export default function ProjectCard({ project }: { project: Project }) {
 					)}
 
 					{/* Tags */}
-					<TagList tags={project.tags} />
+					<TagList tags={project.tags as TagElement[]} />
 				</div>
 			</div>
 			{project?.info && (
 				<div className="flex flex-col gap-1">
-					<Markdown>{project?.info}</Markdown>
+					<RichText content={project?.info} />
 				</div>
 			)}
 		</div>

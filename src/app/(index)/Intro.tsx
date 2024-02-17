@@ -1,9 +1,8 @@
-// import { getAbout } from "@/models/about.server";
-import { about } from "@/utils/data";
+import { About } from "@/lib/contentful/types/about";
 import IconLinks from "./IconLinks";
 import ScrollButton from "./ScrollButton";
 
-export default async function Intro() {
+export default async function Intro({ about }: { about: About }) {
 	return (
 		<section
 			id="intro"
@@ -12,13 +11,13 @@ export default async function Intro() {
 			<div className="flex flex-col items-center gap-2 text-center transition-all">
 				<div>
 					<div className="text-5xl font-medium" aria-label="Name">
-						{about.name || "Name"}
+						{about?.name || "Name"}
 					</div>
 					<div
 						className="pb-1 text-2xl text-muted-foreground"
 						aria-label="Title"
 					>
-						{about.title || "Title"}
+						{about?.title || "Title"}
 					</div>
 				</div>
 			</div>

@@ -1,3 +1,4 @@
+import { ProjectElement } from "@/lib/contentful/types/project-element";
 import ProjectCard from "../cards/ProjectCard";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 
@@ -6,7 +7,7 @@ export default function ProjectDialog({
 	className,
 	children,
 }: {
-	project: Project;
+	project: ProjectElement;
 	className?: string;
 	children: React.ReactNode;
 }) {

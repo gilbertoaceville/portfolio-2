@@ -3,7 +3,6 @@ import { forwardRef } from "react";
 
 import { resolveRichText } from "./helpers/resolveRichText";
 
-import styles from "./rich-text.module.scss";
 import type { RichTextProps } from "./rich-text.types";
 
 const RichText = forwardRef<HTMLDivElement, RichTextProps>(
