@@ -4,29 +4,40 @@ import Experiences from "./Experiences";
 import Projects from "./Projects";
 import DownloadResume from "../DownloadResume";
 import Educations from "./Education";
-import { about } from "@/utils/data";
-
-export const dynamic = "force-dynamic";
+import contentfulContentGateway from "@/lib/contentful";
+import { Projects as ProjectsType } from "@/lib/contentful/types";
 
 export default async function Page() {
-	const linkedInUsername = about.linkedin.replace(/\/$/, "").split("/").pop();
-	const githubUsername = about.github.replace(/\/$/, "").split("/").pop();
+	const data = await contentfulContentGateway.getCvPage();
+
+	console.dir(data, { depth: null });
+
+	const linkedInUsername = data?.about?.linkedin
+		?.replace(/\/$/, "")
+		.split("/")
+		.pop();
+	const githubUsername = data?.about?.github
+		?.replace(/\/$/, "")
+		.split("/")
+		.pop();
 
 	return (
-		<div className="mx-auto max-w-4xl space-y-4 px-4 py-4 print:space-y-2 print:px-0 print:py-0 md:space-y-8 md:py-8">
+		<div className="mx-auto max-w-4xl space-y-4 px-4 py-4 md:space-y-8 md:py-8 print:space-y-2 print:px-0 print:py-0">
 			<div className="flex w-full items-center justify-between print:hidden">
 				<Button className="!px-0" variant="link" asChild>
-					<Link href="/">Home</Link>
+					<Link href="/">{data?.homeTitle}</Link>
 				</Button>
 				<DownloadResume />
 			</div>
-			<div className="flex flex-col justify-between gap-2 print:flex-row print:gap-1 md:flex-row">
+			<div className="flex flex-col justify-between gap-2 md:flex-row print:flex-row print:gap-1">
 				<div>
-					<div className="text-2xl font-bold">{about.name}</div>
-					<div className="pb-1 text-lg font-semibold">
-						{about.title}
+					<div className="text-2xl font-bold">
+						{data?.about?.name}
 					</div>
-					<div>{about.location}</div>
+					<div className="pb-1 text-lg font-semibold">
+						{data?.about?.title}
+					</div>
+					<div>{data?.about?.location}</div>
 				</div>
 				<div className="flex flex-col justify-center gap-1 pt-1 text-sm md:text-right">
 					<div>
@@ -34,9 +45,13 @@ export default async function Page() {
 						<a
 							className="hover:underline"
 							target="_blank"
-							href={"mailto:" + about.email + "?subject=Hello!"}
+							href={
+								"mailto:" +
+								data?.about?.email +
+								"?subject=Hello!"
+							}
 						>
-							{about.email}
+							{data?.about?.email}
 						</a>
 					</div>
 					<div>
@@ -44,7 +59,7 @@ export default async function Page() {
 						<a
 							className="hover:underline"
 							target="_blank"
-							href={about.linkedin}
+							href={data?.about?.linkedin}
 						>
 							@{linkedInUsername}
 						</a>
@@ -54,17 +69,17 @@ export default async function Page() {
 						<a
 							className="hover:underline"
 							target="_blank"
-							href={about.github}
+							href={data?.about?.github}
 						>
 							@{githubUsername}
 						</a>
 					</div>
 				</div>
 			</div>
-			<p className="text-sm">{about.description}</p>
-			<Experiences />
-			<Educations />
-			<Projects />
+			<p className="text-sm">{data?.about?.description}</p>
+			<Experiences {...data?.experiences} />
+			<Educations {...data?.educations} />
+			<Projects {...(data?.projects as ProjectsType)} />
 		</div>
 	);
 }

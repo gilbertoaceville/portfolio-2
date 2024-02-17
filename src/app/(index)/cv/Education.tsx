@@ -1,11 +1,14 @@
-import { educations } from "@/utils/data";
+import type { Educations } from "@/lib/contentful/types";
 
-export default async function Educations() {
+export default async function Educations({
+	managementTitle,
+	educations,
+}: Educations) {
 	return (
 		<div className="space-y-2">
-			<div className="text-xl font-semibold">Education</div>
+			<div className="text-xl font-semibold">{managementTitle}</div>
 			<div className="space-y-4">
-				{educations.map(education => {
+				{educations?.map(education => {
 					return (
 						<div key={education.id}>
 							<div className="flex flex-col gap-1 pb-2 sm:flex-row sm:justify-between sm:gap-2">

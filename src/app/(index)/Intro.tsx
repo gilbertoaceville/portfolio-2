@@ -1,4 +1,4 @@
-import { About } from "@/lib/contentful/types/about";
+import { About } from "@/lib/contentful/types";
 import IconLinks from "./IconLinks";
 import ScrollButton from "./ScrollButton";
 

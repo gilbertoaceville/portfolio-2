@@ -1,21 +1,18 @@
 import SectionTitle from "./SectionTitle";
 import ProjectDialog from "@/components/dialogs/ProjectDialog";
 import Project from "./Project";
-import { Projects } from "@/lib/contentful/types/projects";
-import { ProjectElement } from "@/lib/contentful/types/project-element";
+import { Projects } from "@/lib/contentful/types";
 
-interface ProjectProps {
-	title: string;
-	projects: ProjectElement[];
-}
-
-export default async function ProjectsList({ title, projects }: ProjectProps) {
+export default async function ProjectsList({
+	managementTitle,
+	projects,
+}: Projects) {
 	return (
 		<section
-			id={title}
+			id={managementTitle}
 			className="flex min-h-screen flex-col gap-4 py-2 sm:py-16 md:justify-between md:gap-8"
 		>
-			<SectionTitle id={title} />
+			<SectionTitle id={managementTitle || ""} />
 			<div className="grid grid-cols-12 gap-4 md:gap-6">
 				{projects?.map((p, i) => (
 					<ProjectDialog

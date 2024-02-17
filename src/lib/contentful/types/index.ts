@@ -1,0 +1,12 @@
+export type { About } from "./about";
+export type { Asset } from "./asset";
+export type { Contact } from "./contact";
+export type { CVPage } from "./cv-page";
+export type { EducationElement } from "./education-element";
+export type { Educations } from "./educations";
+export type { ExperienceElement } from "./experience-element";
+export type { Experiences } from "./experiences";
+export type { Projects } from "./projects";
+export type { ProjectElement } from "./project-element";
+export type { TagElement } from "./tag-element";
+export type { HomePage } from "./home-page";

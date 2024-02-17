@@ -4,8 +4,7 @@ import { usePlausible } from "next-plausible";
 import Image from "next/image";
 
 import TagList from "@/components/TagList";
-import { ProjectElement } from "@/lib/contentful/types/project-element";
-import { TagElement } from "@/lib/contentful/types/tag-element";
+import { ProjectElement, TagElement } from "@/lib/contentful/types";
 
 export default function Project({ project }: { project: ProjectElement }) {
 	const plausible = usePlausible();

@@ -5,17 +5,14 @@ import ProjectsList from "./ProjectsList";
 import Intro from "./Intro";
 import { Button } from "@/components/ui/button";
 import contentfulContentGateway from "@/lib/contentful";
-import { Projects } from "@/lib/contentful/types/projects";
-import { About } from "@/lib/contentful/types/about";
-import { Contact as ContactType } from "@/lib/contentful/types/contact";
-
-// export const runtime = "edge";
-// export const dynamic = "force-dynamic";
+import {
+	Contact as ContactType,
+	About,
+	Projects,
+} from "@/lib/contentful/types";
 
 export default async function Page() {
 	const data = await contentfulContentGateway.getHomePage();
-
-	console.dir(data, { depth: null });
 
 	return (
 		<>
@@ -26,10 +23,7 @@ export default async function Page() {
 			</div>
 			<div className="max-w-screen flex w-full select-none flex-col justify-between gap-12 px-4 pt-8 sm:px-8 md:gap-4 md:px-16 md:pt-0 lg:px-24 xl:px-32">
 				<Intro about={data?.about as About} />
-				<ProjectsList
-					title={data?.projects?.managementTitle || ""}
-					projects={data?.projects?.projects as Projects["projects"]}
-				/>
+				<ProjectsList {...(data?.projects as Projects)} />
 				<Contact contact={data?.contact as ContactType} />
 			</div>
 		</>

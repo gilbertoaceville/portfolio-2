@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 import { Badge } from "./ui/badge";
-import { TagElement } from "@/lib/contentful/types/tag-element";
+import { TagElement } from "@/lib/contentful/types";
 
 export default function TagList({
 	tags,

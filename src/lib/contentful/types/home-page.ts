@@ -1,4 +1,4 @@
-import { Projects } from "./projects";
+import { About, Contact, Projects } from ".";
 
 export interface HomePage {
 	contentType: "portfolioHome";

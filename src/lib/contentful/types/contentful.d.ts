@@ -201,6 +201,45 @@ export interface IExperiences extends Entry<IExperiencesFields> {
   };
 }
 
+export interface IHomePageFields {
+  /** Management Title */
+  managementTitle?: string | undefined;
+
+  /** slug */
+  slug: string;
+
+  /** CV Title */
+  cvTitle?: string | undefined;
+
+  /** About */
+  about?: IPortfolioAbout | undefined;
+
+  /** Projects */
+  projects?: IPortfolioProjects | undefined;
+
+  /** Contact */
+  contact?: IContact | undefined;
+}
+
+/** Portfolio home page */
+
+export interface IHomePage extends Entry<IHomePageFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "homePage";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IPortfolioAboutFields {
   /** Management Title */
   managementTitle?: string | undefined;
@@ -261,6 +300,9 @@ export interface IPortfolioCvFields {
 
   /** Slug */
   slug?: string | undefined;
+
+  /** Home Title */
+  homeTitle?: string | undefined;
 
   /** About */
   about?: IPortfolioAbout | undefined;
@@ -443,6 +485,7 @@ export type CONTENT_TYPE =
   | "experienceDescriptionItem"
   | "experienceElement"
   | "experiences"
+  | "homePage"
   | "portfolioAbout"
   | "portfolioCv"
   | "portfolioHome"
@@ -457,6 +500,7 @@ export type IEntry =
   | IExperienceDescriptionItem
   | IExperienceElement
   | IExperiences
+  | IHomePage
   | IPortfolioAbout
   | IPortfolioCv
   | IPortfolioHome

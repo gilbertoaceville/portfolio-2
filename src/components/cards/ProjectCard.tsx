@@ -1,10 +1,8 @@
 import clsx from "clsx";
 
 import TagList from "../TagList";
-import Markdown from "../Markdown";
 import ImagesDialog from "../dialogs/ImagesDialog";
-import { ProjectElement } from "@/lib/contentful/types/project-element";
-import { TagElement } from "@/lib/contentful/types/tag-element";
+import { ProjectElement, TagElement } from "@/lib/contentful/types";
 import RichText from "../rich-text";
 
 export default function ProjectCard({ project }: { project: ProjectElement }) {

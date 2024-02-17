@@ -1,6 +1,5 @@
 import replaceUndefinedWithNull from "@/utils/helpers/replaceUndefinedWithNull";
-import { IContact, IPortfolioHome } from "../types/contentful";
-import { Contact } from "../types/contact";
+import { IPortfolioHome } from "../types/contentful";
 import { HomePage } from "../types/home-page";
 import { aboutAdapter } from "./about";
 import { contactAdapter } from "./contact";

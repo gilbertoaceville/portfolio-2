@@ -1,5 +1,5 @@
 import replaceUndefinedWithNull from "@/utils/helpers/replaceUndefinedWithNull";
-import { IProjectElement, IProjectElementFields } from "../types/contentful.d";
+import { IProjectElement } from "../types/contentful.d";
 import { ProjectElement } from "../types/project-element";
 import { assetAdapter } from "./asset";
 import { tagElementAdapter } from "./tag-element";

@@ -1,4 +1,4 @@
-import { ProjectElement } from "@/lib/contentful/types/project-element";
+import { ProjectElement } from "@/lib/contentful/types";
 import ProjectCard from "../cards/ProjectCard";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 

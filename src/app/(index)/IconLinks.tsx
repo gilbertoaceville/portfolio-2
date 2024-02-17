@@ -1,6 +1,6 @@
 "use client";
 
-import { About } from "@/lib/contentful/types/about";
+import { About } from "@/lib/contentful/types";
 import {
 	HoverCard,
 	HoverCardContent,
