@@ -1,0 +1,32 @@
+.rich-text__ordered-list,
+.rich-text__unordered-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.rich-text__ordered-list li,
+.rich-text__unordered-list li {
+	margin-bottom: 8px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.rich-text__ordered-list li {
+	list-style: decimal;
+	margin-left: 16px;
+}
+
+.rich-text__bold,
+.rich-text__italic {
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.rich-text__hr {
+	width: 100%;
+	border: 1px solid #8e8e8e;
+	margin: 32px 0;
+}

@@ -6,7 +6,7 @@ const Paragraph = (node: Block | Inline, children: React.ReactNode) => {
 	const paragraphs = (Array.isArray(children) ? children : [children]).filter(
 		child => child !== ""
 	);
-	return paragraphs.length ? <p>{paragraphs}</p> : null;
+	return paragraphs.length ? <p className="block">{paragraphs}</p> : null;
 };
 
 const Heading1 = (node: Block | Inline, children: React.ReactNode) => (
@@ -36,7 +36,9 @@ const OrderedList = (node: Block | Inline, children: React.ReactNode) => (
 const HorizontalRule = () => <hr className={styles["rich-text__hr"]} />;
 
 const ExternalLink = (node: Block | Inline, children: React.ReactNode) => (
-	<a href={node.data?.uri}>{children}</a>
+	<a className="cursor-pointer" href={node.data?.uri}>
+		{children}
+	</a>
 );
 
 const InternalLink = (node: Block | Inline, children: React.ReactNode) => {
