@@ -1,14 +1,18 @@
 import clsx from "clsx";
+import moment from "moment";
+
+import { ProjectElement, TagElement } from "@/lib/contentful/types";
 
 import TagList from "../TagList";
 import ImagesDialog from "../dialogs/ImagesDialog";
-import { ProjectElement, TagElement } from "@/lib/contentful/types";
 import RichText from "../rich-text";
 
 export default function ProjectCard({ project }: { project: ProjectElement }) {
 	const images = project?.images?.length
 		? project.images.filter(image => image.url)
 		: [];
+
+	const date = moment(project?.date).format("MM/YYYY");
 
 	return (
 		<div className="flex w-full max-w-7xl flex-col pb-4 sm:px-4">
@@ -43,9 +47,7 @@ export default function ProjectCard({ project }: { project: ProjectElement }) {
 								{project?.company}
 							</p>
 						</div>
-						<div className="text-foreground/70">
-							{project?.date}
-						</div>
+						<div className="text-foreground/70">{date}</div>
 					</div>
 
 					{/* Project Link */}

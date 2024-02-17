@@ -1,4 +1,7 @@
+import moment from "moment";
+
 import type { Experiences } from "@/lib/contentful/types";
+import { calculateTimeSpent } from "@/utils/helpers/calculateTimeSpent";
 
 export default async function Experiences({
 	managementTitle,
@@ -9,8 +12,23 @@ export default async function Experiences({
 			<div className="text-xl font-semibold">{managementTitle}</div>
 			<div className="space-y-4 print:space-y-2">
 				{experiences?.map((experience, i) => {
+					const startDate = moment(experience?.startDate).format(
+						"MM/YYYY"
+					);
+					const endDate = experience?.endDate
+						? moment(experience?.endDate).format("MM/YYYY")
+						: "Present";
+
+					const timespent = calculateTimeSpent(
+						experience?.startDate,
+						experience?.endDate
+					);
+
 					return (
-						<div key={`${experience?.title}-${i}`}>
+						<div
+							title={`Services offered for - ${timespent}`}
+							key={`${experience?.title}-${i}`}
+						>
 							<div className="mb-2 font-medium">
 								{experience?.title}
 							</div>
@@ -25,16 +43,17 @@ export default async function Experiences({
 									<div>{experience?.location}</div>
 								</div>
 								<div
-									title=""
+									title={timespent}
 									className="flex gap-2 text-secondary-foreground"
 								>
-									<p>{experience?.startDate}</p>-
-									<p>{experience?.endDate}</p>
+									<p>{startDate}</p>-<p>{endDate}</p>
 								</div>
 							</div>
 							<div className="gap-2 px-2 text-sm">
 								{experience?.description?.map(d => (
-									<div key={d}>- {d}</div>
+									<div key={d as unknown as string}>
+										- {d as unknown as string}
+									</div>
 								))}
 							</div>
 						</div>
@@ -43,23 +62,4 @@ export default async function Experiences({
 			</div>
 		</div>
 	);
-}
-
-function calculateTimeSpent(startDate: Date, endDate?: Date | null): string {
-	if (!endDate) {
-		endDate = new Date();
-	}
-
-	let years = endDate.getUTCFullYear() - startDate.getUTCFullYear();
-	let months = endDate.getUTCMonth() - startDate.getUTCMonth() + 1;
-
-	if (months <= 0) {
-		years--;
-		months += 12;
-	} else if (months > 12) {
-		years++;
-		months = 0;
-	}
-
-	return `${years} years, ${months} months`;
 }

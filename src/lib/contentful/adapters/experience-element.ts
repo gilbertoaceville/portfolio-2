@@ -14,7 +14,7 @@ export const experienceElementAdapter = ({
 		title: fields.title,
 		company: fields.company,
 		description: fields.description?.map(
-			(item: IExperienceDescriptionItem) => item.fields.value
+			(item: IExperienceDescriptionItem & string) => item.fields.value
 		),
 		location: fields.location,
 		startDate: fields.startDate,

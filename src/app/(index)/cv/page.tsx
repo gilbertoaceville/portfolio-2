@@ -10,8 +10,6 @@ import { Projects as ProjectsType } from "@/lib/contentful/types";
 export default async function Page() {
 	const data = await contentfulContentGateway.getCvPage();
 
-	console.dir(data, { depth: null });
-
 	const linkedInUsername = data?.about?.linkedin
 		?.replace(/\/$/, "")
 		.split("/")
