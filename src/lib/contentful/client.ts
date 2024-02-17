@@ -17,10 +17,10 @@ function contentfulClient(preview?: boolean) {
 		host: preview ? "preview.contentful.com" : "cdn.contentful.com",
 
 		// If we should resolve links between entries
-		resolveLinks: true,
+		// resolveLinks: true,
 		retryLimit: 5,
 		retryOnError: true,
-		removeUnresolved: true,
+		// removeUnresolved: true,
 	});
 }
 

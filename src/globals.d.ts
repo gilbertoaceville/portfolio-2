@@ -1,7 +1,7 @@
 type Section = "intro" | "projects" | "contact";
 
 type Experience = {
-	id: number;
+	id?: number;
 	title: string;
 	company: string;
 	startDate: string;
@@ -14,7 +14,7 @@ type Experience = {
 };
 
 type Project = {
-	id: number;
+	id?: number;
 	date: string;
 	/** Where I worked when I built the project */
 	company: string;
@@ -35,7 +35,7 @@ type Project = {
 };
 
 type Contact = {
-	id: number;
+	id?: number;
 	name: string;
 	email: string;
 	message: string;
