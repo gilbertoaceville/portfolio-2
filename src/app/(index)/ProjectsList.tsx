@@ -9,10 +9,10 @@ export default async function ProjectsList({
 }: Projects) {
 	return (
 		<section
-			id={managementTitle}
+			id="projects"
 			className="flex min-h-screen flex-col gap-4 py-2 sm:py-16 md:justify-between md:gap-8"
 		>
-			<SectionTitle id={managementTitle || ""} />
+			<SectionTitle id={managementTitle || "projects"} />
 			<div className="grid grid-cols-12 gap-4 md:gap-6">
 				{projects?.map((p, i) => (
 					<ProjectDialog

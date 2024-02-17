@@ -47,7 +47,7 @@ export default function ContactForm() {
 					<Textarea
 						required
 						name="message"
-						className="md:w-2/3"
+						className="resize-none md:w-2/3"
 						rows={5}
 					/>
 				</div>
