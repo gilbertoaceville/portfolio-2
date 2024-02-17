@@ -10,9 +10,9 @@ export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
-	const data = await contentfulContentGateway.getHomePage();
+	// const data = await contentfulContentGateway.getHomePage();
 
-	console.log({ data });
+	// console.log({ data });
 
 	return (
 		<>
