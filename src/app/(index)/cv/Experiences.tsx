@@ -26,8 +26,8 @@ export default async function Experiences({
 
 					return (
 						<div
-							title={`Services offered for - ${timespent}`}
 							key={`${experience?.title}-${i}`}
+							title={`Services offered for - ${timespent}`}
 						>
 							<div className="mb-2 font-medium">
 								{experience?.title}

@@ -16,5 +16,24 @@ export function calculateTimeSpent(
 		months = 0;
 	}
 
-	return `${years} years, ${months} months`;
+	switch (true) {
+		case years === 1 && months === 1: {
+			return `${years} year, ${months} month`;
+		}
+		case years === 1: {
+			return `${years} year, ${months} months`;
+		}
+		case months === 1: {
+			return `${years} years, ${months} month`;
+		}
+		case years < 1 && months > 1: {
+			return `${months} months`;
+		}
+		case years < 1 && months === 1: {
+			return `${months} month`;
+		}
+		default: {
+			return `${years} years, ${months} months`;
+		}
+	}
 }
