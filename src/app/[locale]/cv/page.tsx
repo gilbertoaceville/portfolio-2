@@ -27,7 +27,9 @@ export default async function Page() {
 				<Button className="!px-0" variant="link" asChild>
 					<Link href="/">{data?.homeTitle}</Link>
 				</Button>
-				<DownloadResume />
+				<DownloadResume
+					downloadLabel={data?.downloadLabel || "Download"}
+				/>
 			</div>
 			<div className="flex flex-col justify-between gap-2 md:flex-row print:flex-row print:gap-1">
 				<div>
@@ -41,7 +43,7 @@ export default async function Page() {
 				</div>
 				<div className="flex flex-col justify-center gap-1 pt-1 text-sm md:text-right">
 					<div>
-						Email:{" "}
+						{data?.about?.emailText || "Email"}:{" "}
 						<a
 							className="hover:underline"
 							target="_blank"

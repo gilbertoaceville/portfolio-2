@@ -10,6 +10,7 @@ export const cvPageAdapter = ({ fields, sys }: IPortfolioCv): CVPage => {
 	return replaceUndefinedWithNull({
 		contentType: sys.contentType.sys.id,
 		homeTitle: fields.homeTitle,
+		downloadLabel: fields.downloadLabel,
 		slug: fields.slug,
 		about: fields?.about ? aboutAdapter(fields?.about) : null,
 		experiences: fields?.experiences

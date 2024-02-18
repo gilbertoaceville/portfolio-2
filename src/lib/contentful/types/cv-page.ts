@@ -4,6 +4,7 @@ export interface CVPage {
 	contentType: "portfolioCv";
 	slug?: string;
 	homeTitle: string;
+	downloadLabel?: string;
 	about: About | null;
 	projects: Projects | null;
 	experiences: Experiences | null;

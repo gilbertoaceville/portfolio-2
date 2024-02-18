@@ -331,6 +331,9 @@ export interface IPortfolioCvFields {
   /** Home Title */
   homeTitle?: string | undefined;
 
+  /** Download Label */
+  downloadLabel?: string | undefined;
+
   /** About */
   about?: IPortfolioAbout | undefined;
 

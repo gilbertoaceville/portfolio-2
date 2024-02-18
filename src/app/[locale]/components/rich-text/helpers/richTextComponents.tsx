@@ -10,15 +10,15 @@ const Paragraph = (node: Block | Inline, children: React.ReactNode) => {
 };
 
 const Heading1 = (node: Block | Inline, children: React.ReactNode) => (
-	<h1>{children}</h1>
+	<h1 className={styles["rich-text__h1"]}>{children}</h1>
 );
 
 const Heading2 = (node: Block | Inline, children: React.ReactNode) => (
-	<h2>{children}</h2>
+	<h2 className={styles["rich-text__h2"]}>{children}</h2>
 );
 
 const Heading3 = (node: Block | Inline, children: React.ReactNode) => (
-	<h3>{children}</h3>
+	<h3 className={styles["rich-text__h3"]}>{children}</h3>
 );
 
 const ListItem = (node: Block | Inline, children: React.ReactNode) => (

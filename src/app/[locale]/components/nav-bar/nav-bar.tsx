@@ -11,7 +11,7 @@ export default function NavBar() {
 
 	return (
 		<header className="bg-slate-900 font-bold">
-			<nav className="p-0.5">
+			<nav className="p-1">
 				<div className="relative z-50 flex justify-end">
 					<Link href={`/en${path}`} locale="en">
 						<div className="mr-4 text-2xl">🇺🇸</div>
