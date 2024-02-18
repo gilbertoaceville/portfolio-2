@@ -10,5 +10,8 @@ export const contactAdapter = ({ fields }: IContact): Contact => {
 		description: fields.description,
 		subDescription: fields.subDescription,
 		github: fields.github,
+		ctaText: fields.ctaText,
+		emailText: fields.emailText,
+		nameText: fields.nameText,
 	});
 };

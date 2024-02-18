@@ -21,6 +21,15 @@ export interface IContactFields {
 
   /** Sub Description */
   subDescription?: string | undefined;
+
+  /** CTA Text */
+  ctaText?: string | undefined;
+
+  /** Email Text */
+  emailText?: string | undefined;
+
+  /** Name Text */
+  nameText?: string | undefined;
 }
 
 /** Portfolio contact content */
@@ -103,6 +112,9 @@ export interface IEducations extends Entry<IEducationsFields> {
 export interface IExperienceDescriptionItemFields {
   /** Value */
   value: string;
+
+  /** Text */
+  text?: string | undefined;
 }
 
 /** Each described experience is represented here */
@@ -273,6 +285,9 @@ export interface IPortfolioAboutFields {
 
   /** Github */
   github?: string | undefined;
+
+  /** Email Text */
+  emailText?: string | undefined;
 }
 
 /** Portfolio about content */

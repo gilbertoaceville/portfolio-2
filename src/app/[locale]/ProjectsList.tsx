@@ -1,5 +1,5 @@
 import SectionTitle from "./SectionTitle";
-import ProjectDialog from "@/components/dialogs/ProjectDialog";
+import ProjectDialog from "@/app/[locale]/components/dialogs/ProjectDialog";
 import Project from "./Project";
 import { Projects } from "@/lib/contentful/types";
 

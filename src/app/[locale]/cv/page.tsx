@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/app/[locale]/components/ui/button";
 import Link from "next/link";
 import Experiences from "./Experiences";
 import Projects from "./Projects";
@@ -6,9 +6,11 @@ import DownloadResume from "../DownloadResume";
 import Educations from "./Education";
 import contentfulContentGateway from "@/lib/contentful";
 import { Projects as ProjectsType } from "@/lib/contentful/types";
+import { getLocale } from "next-intl/server";
 
 export default async function Page() {
-	const data = await contentfulContentGateway.getCvPage();
+	const locale = await getLocale();
+	const data = await contentfulContentGateway.getCvPage(locale);
 
 	const linkedInUsername = data?.about?.linkedin
 		?.replace(/\/$/, "")

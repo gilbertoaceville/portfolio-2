@@ -1,14 +1,19 @@
 import SectionTitle from "./SectionTitle";
-import ContactForm from "@/components/Forms/ContactForm";
-import { Button } from "@/components/ui/button";
+import ContactForm from "@/app/[locale]/components/Forms/ContactForm";
+import { Button } from "@/app/[locale]/components/ui/button";
 import Link from "next/link";
 import PageViews from "./PageViews";
 import type { Contact } from "@/lib/contentful/types/contact";
+import { useLocale, useTranslations } from "next-intl";
+
 interface ContactProps {
 	contact: Contact;
 }
 
-export default async function Contact({ contact }: ContactProps) {
+export default function Contact({ contact }: ContactProps) {
+	const t = useTranslations("contacts");
+	const locale = useLocale();
+
 	const linkedInUsername = contact?.linkedIn
 		? contact.linkedIn.replace(/\/$/, "").split("/").pop()
 		: "";
@@ -71,7 +76,7 @@ export default async function Contact({ contact }: ContactProps) {
 						size="sm"
 						variant="link"
 					>
-						<Link href="/cv">View my CV</Link>
+						<Link href={`/${locale}/cv`}>{t("cv-link")}</Link>
 					</Button>
 				</div>
 				<ContactForm />
