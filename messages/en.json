@@ -1,5 +1,9 @@
 {
 	"contacts": {
 		"cv-link": "View my CV"
+	},
+	"experiences": {
+		"present": "Present",
+		"services": "Services offered for -"
 	}
 }
