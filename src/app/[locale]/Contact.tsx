@@ -33,7 +33,7 @@ export default function Contact({ contact }: ContactProps) {
 					</div>
 					<div className="space-y-4">
 						<p>
-							Email:{" "}
+							{contact?.emailText || "Email"}:{" "}
 							<a
 								className="hover:underline"
 								href={
@@ -76,10 +76,10 @@ export default function Contact({ contact }: ContactProps) {
 						size="sm"
 						variant="link"
 					>
-						<Link href={`/${locale}/cv`}>{t("cv-link")}</Link>
+						<Link href={`/${locale}/cv`}>{contact?.ctaText}</Link>
 					</Button>
 				</div>
-				<ContactForm />
+				<ContactForm {...contact} />
 			</div>
 			<PageViews />
 		</section>

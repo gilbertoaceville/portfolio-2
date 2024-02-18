@@ -8,4 +8,8 @@ export interface Contact {
 	ctaText?: string;
 	emailText?: string;
 	nameText?: string;
+	message?: string;
+	successMessage?: string;
+	submitText?: string;
+	messageText?: string;
 }

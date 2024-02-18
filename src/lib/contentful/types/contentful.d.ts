@@ -30,6 +30,18 @@ export interface IContactFields {
 
   /** Name Text */
   nameText?: string | undefined;
+
+  /** Message */
+  message?: string | undefined;
+
+  /** Success Message */
+  successMessage?: string | undefined;
+
+  /** Submit Text */
+  submitText?: string | undefined;
+
+  /** Message Text */
+  messageText?: string | undefined;
 }
 
 /** Portfolio contact content */

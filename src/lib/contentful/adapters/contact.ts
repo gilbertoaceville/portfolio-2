@@ -13,5 +13,9 @@ export const contactAdapter = ({ fields }: IContact): Contact => {
 		ctaText: fields.ctaText,
 		emailText: fields.emailText,
 		nameText: fields.nameText,
+		message: fields.message,
+		successMessage: fields.successMessage,
+		submitText: fields.submitText,
+		messageText: fields.messageText,
 	});
 };
