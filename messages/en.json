@@ -5,5 +5,9 @@
 	"experiences": {
 		"present": "Present",
 		"services": "Services offered for -"
+	},
+	"projects": {
+		"view-website": "View Website",
+		"view-project": "View Project"
 	}
 }

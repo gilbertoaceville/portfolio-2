@@ -1,21 +1,23 @@
-import { ProjectElement } from "@/lib/contentful/types";
-import ProjectCard from "../cards/ProjectCard";
+import ProjectCard, { ProjectCardProps } from "../cards/ProjectCard";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
+import { PropsWithChildren } from "react";
+
+interface ProjectDialogProps extends ProjectCardProps, PropsWithChildren {
+	className?: string;
+}
 
 export default function ProjectDialog({
 	project,
+	websiteLabel,
+	githubLabel,
 	className,
 	children,
-}: {
-	project: ProjectElement;
-	className?: string;
-	children: React.ReactNode;
-}) {
+}: ProjectDialogProps) {
 	return (
 		<Dialog>
 			<DialogTrigger className={className}>{children}</DialogTrigger>
 			<DialogContent size="lg">
-				<ProjectCard project={project} />
+				<ProjectCard {...{ project, websiteLabel, githubLabel }} />
 			</DialogContent>
 		</Dialog>
 	);

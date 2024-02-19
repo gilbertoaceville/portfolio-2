@@ -411,6 +411,15 @@ export interface IPortfolioProjectsFields {
 
   /** Projects */
   projects?: IProjectElement[] | undefined;
+
+  /** CTA Label */
+  ctaLabel?: string | undefined;
+
+  /** Website Label */
+  websiteLabel?: string | undefined;
+
+  /** Github Label */
+  githubLabel?: string | undefined;
 }
 
 /** Portfolio projects content */

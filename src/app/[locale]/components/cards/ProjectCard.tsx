@@ -1,13 +1,23 @@
 import clsx from "clsx";
 import moment from "moment";
+import { Github, ExternalLink } from "lucide-react";
 
-import { ProjectElement, TagElement } from "@/lib/contentful/types";
+import { ProjectElement, Projects, TagElement } from "@/lib/contentful/types";
 
 import TagList from "../TagList";
 import ImagesDialog from "../dialogs/ImagesDialog";
 import RichText from "../rich-text";
 
-export default function ProjectCard({ project }: { project: ProjectElement }) {
+export interface ProjectCardProps
+	extends Pick<Projects, "githubLabel" | "websiteLabel"> {
+	project: ProjectElement;
+}
+
+export default function ProjectCard({
+	project,
+	websiteLabel,
+	githubLabel,
+}: ProjectCardProps) {
 	const images = project?.images?.length
 		? project.images.filter(image => image.url)
 		: [];
@@ -43,7 +53,7 @@ export default function ProjectCard({ project }: { project: ProjectElement }) {
 							<p className="flex items-center gap-2 text-xl font-medium">
 								{project?.title}
 							</p>
-							<p className="text-lg text-foreground/85">
+							<p className="my-2 text-lg text-foreground/85">
 								{project?.company}
 							</p>
 						</div>
@@ -56,9 +66,9 @@ export default function ProjectCard({ project }: { project: ProjectElement }) {
 							href={project.webUrl}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="text-neutral-600 hover:underline dark:text-neutral-300"
+							className="flex gap-1 text-neutral-600 hover:underline dark:text-neutral-300"
 						>
-							View Website
+							<ExternalLink /> {websiteLabel}
 						</a>
 					)}
 
@@ -68,9 +78,9 @@ export default function ProjectCard({ project }: { project: ProjectElement }) {
 							href={project.githubUrl}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="text-neutral-600 hover:underline dark:text-neutral-300"
+							className="flex gap-1 text-neutral-600 hover:underline dark:text-neutral-300"
 						>
-							View Project
+							<Github /> {githubLabel}
 						</a>
 					)}
 

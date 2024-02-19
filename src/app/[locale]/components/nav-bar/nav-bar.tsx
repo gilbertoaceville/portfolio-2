@@ -14,7 +14,7 @@ export default function NavBar() {
 			<nav className="p-1">
 				<div className="relative z-50 flex justify-end">
 					<Link href={`/en${path}`} locale="en">
-						<div className="mr-4 text-2xl">🇺🇸</div>
+						<div className="mr-4 text-2xl">🇬🇧</div>
 					</Link>
 
 					<Link href={`/es${path}`} locale="es">
