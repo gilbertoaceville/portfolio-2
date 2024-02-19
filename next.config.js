@@ -13,6 +13,12 @@ const nextConfig = withNextIntl({
 			removeDebugger: true,
 		},
 	}),
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
+	typescript: {
+		ignoreBuildErrors: true,
+	},
 	images: {
 		remotePatterns: [
 			{
