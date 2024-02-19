@@ -8,10 +8,6 @@
 .rich-text__ordered-list li,
 .rich-text__unordered-list li {
 	margin-bottom: 8px;
-
-	&:last-child {
-		margin-bottom: 0;
-	}
 }
 
 .rich-text__ordered-list li {
