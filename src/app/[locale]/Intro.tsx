@@ -6,7 +6,7 @@ export default function Intro({ about }: { about: About }) {
 	return (
 		<section
 			id="intro"
-			className="relative flex min-h-screen flex-col items-center justify-center gap-4 overflow-hidden"
+			className="relative flex min-h-[90vh] flex-col items-center justify-center gap-4 overflow-hidden"
 		>
 			<div className="flex flex-col items-center gap-2 text-center transition-all">
 				<div>

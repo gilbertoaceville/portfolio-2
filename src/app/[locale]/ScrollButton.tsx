@@ -31,7 +31,7 @@ export default function ScrollButton() {
 					.getElementById("projects")
 					?.scrollIntoView({ behavior: "smooth" })
 			}
-			className="chevron absolute inset-x-auto bottom-12"
+			className="chevron absolute inset-x-auto bottom-14"
 		>
 			<ChevronDown className="transition-all hover:scale-150" />
 		</button>
