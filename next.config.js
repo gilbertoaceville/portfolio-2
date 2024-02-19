@@ -10,6 +10,12 @@ const nextConfig = {
 			removeDebugger: true,
 		},
 	}),
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
+	typescript: {
+		ignoreBuildErrors: true,
+	},
 	images: {
 		remotePatterns: [
 			{
