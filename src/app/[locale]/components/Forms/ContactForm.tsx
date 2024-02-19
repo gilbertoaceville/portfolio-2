@@ -6,6 +6,7 @@ import Submit from "../buttons/SubmitButton";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
+import { Contact } from "@/lib/contentful/types";
 
 async function submitMessage(
 	p: any,
@@ -18,7 +19,25 @@ async function submitMessage(
 	}
 }
 
-export default function ContactForm() {
+interface ContactFormProps
+	extends Pick<
+		Contact,
+		| "message"
+		| "messageText"
+		| "submitText"
+		| "successMessage"
+		| "nameText"
+		| "emailText"
+	> {}
+
+export default function ContactForm({
+	message,
+	messageText,
+	submitText,
+	successMessage,
+	nameText,
+	emailText,
+}: ContactFormProps) {
 	const [state, formAction] = useFormState(submitMessage, {});
 
 	return (
@@ -27,14 +46,14 @@ export default function ContactForm() {
 			className="flex h-full w-full flex-1 flex-col justify-between md:max-w-[50%]"
 		>
 			<div className="flex w-full select-none flex-col gap-4">
-				<p className="mb-2 text-lg">Leave a message</p>
+				<p className="mb-2 text-lg">{message}</p>
 
 				<div className="flex flex-col justify-between gap-2 md:flex-row md:items-center">
-					<Label>Name</Label>
+					<Label>{nameText}</Label>
 					<Input required name="name" className="md:w-2/3" />
 				</div>
 				<div className="flex flex-col justify-between gap-2 md:flex-row md:items-center">
-					<Label>Email</Label>
+					<Label>{emailText}</Label>
 					<Input
 						required
 						className="md:w-2/3"
@@ -43,7 +62,7 @@ export default function ContactForm() {
 					/>
 				</div>
 				<div className="flex flex-col justify-between gap-2 md:flex-row md:items-center">
-					<Label>Message</Label>
+					<Label>{messageText}</Label>
 					<Textarea
 						required
 						name="message"
@@ -51,7 +70,7 @@ export default function ContactForm() {
 						rows={5}
 					/>
 				</div>
-				<Submit>Send</Submit>
+				<Submit>{submitText}</Submit>
 				<div className="pt-2 text-center">
 					{state?.success && (
 						<p className="text-green-500">{state.success}</p>

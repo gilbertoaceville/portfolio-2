@@ -2,7 +2,7 @@ import { About } from "@/lib/contentful/types";
 import IconLinks from "./IconLinks";
 import ScrollButton from "./ScrollButton";
 
-export default async function Intro({ about }: { about: About }) {
+export default function Intro({ about }: { about: About }) {
 	return (
 		<section
 			id="intro"

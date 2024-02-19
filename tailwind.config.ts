@@ -69,6 +69,9 @@ const config = {
 					foreground: "hsl(var(--card-foreground))",
 				},
 			},
+			borderColor: {
+				foreground: "hsl(var(--foreground))",
+			},
 			borderRadius: {
 				lg: "var(--radius)",
 				md: "calc(var(--radius) - 2px)",

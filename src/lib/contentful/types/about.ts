@@ -12,4 +12,5 @@ export interface About {
 	email?: string;
 	linkedin?: string;
 	github?: string;
+	emailText?: string;
 }

@@ -21,6 +21,27 @@ export interface IContactFields {
 
   /** Sub Description */
   subDescription?: string | undefined;
+
+  /** CTA Text */
+  ctaText?: string | undefined;
+
+  /** Email Text */
+  emailText?: string | undefined;
+
+  /** Name Text */
+  nameText?: string | undefined;
+
+  /** Message */
+  message?: string | undefined;
+
+  /** Success Message */
+  successMessage?: string | undefined;
+
+  /** Submit Text */
+  submitText?: string | undefined;
+
+  /** Message Text */
+  messageText?: string | undefined;
 }
 
 /** Portfolio contact content */
@@ -103,6 +124,9 @@ export interface IEducations extends Entry<IEducationsFields> {
 export interface IExperienceDescriptionItemFields {
   /** Value */
   value: string;
+
+  /** Text */
+  text?: string | undefined;
 }
 
 /** Each described experience is represented here */
@@ -273,6 +297,9 @@ export interface IPortfolioAboutFields {
 
   /** Github */
   github?: string | undefined;
+
+  /** Email Text */
+  emailText?: string | undefined;
 }
 
 /** Portfolio about content */
@@ -303,6 +330,9 @@ export interface IPortfolioCvFields {
 
   /** Home Title */
   homeTitle?: string | undefined;
+
+  /** Download Label */
+  downloadLabel?: string | undefined;
 
   /** About */
   about?: IPortfolioAbout | undefined;
@@ -381,6 +411,15 @@ export interface IPortfolioProjectsFields {
 
   /** Projects */
   projects?: IProjectElement[] | undefined;
+
+  /** CTA Label */
+  ctaLabel?: string | undefined;
+
+  /** Website Label */
+  websiteLabel?: string | undefined;
+
+  /** Github Label */
+  githubLabel?: string | undefined;
 }
 
 /** Portfolio projects content */

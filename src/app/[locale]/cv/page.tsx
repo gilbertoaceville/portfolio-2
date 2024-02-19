@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/app/[locale]/components/ui/button";
 import Link from "next/link";
 import Experiences from "./Experiences";
 import Projects from "./Projects";
@@ -6,9 +6,11 @@ import DownloadResume from "../DownloadResume";
 import Educations from "./Education";
 import contentfulContentGateway from "@/lib/contentful";
 import { Projects as ProjectsType } from "@/lib/contentful/types";
+import { getLocale } from "next-intl/server";
 
 export default async function Page() {
-	const data = await contentfulContentGateway.getCvPage();
+	const locale = await getLocale();
+	const data = await contentfulContentGateway.getCvPage(locale);
 
 	const linkedInUsername = data?.about?.linkedin
 		?.replace(/\/$/, "")
@@ -25,7 +27,9 @@ export default async function Page() {
 				<Button className="!px-0" variant="link" asChild>
 					<Link href="/">{data?.homeTitle}</Link>
 				</Button>
-				<DownloadResume />
+				<DownloadResume
+					downloadLabel={data?.downloadLabel || "Download"}
+				/>
 			</div>
 			<div className="flex flex-col justify-between gap-2 md:flex-row print:flex-row print:gap-1">
 				<div>
@@ -39,7 +43,7 @@ export default async function Page() {
 				</div>
 				<div className="flex flex-col justify-center gap-1 pt-1 text-sm md:text-right">
 					<div>
-						Email:{" "}
+						{data?.about?.emailText || "Email"}:{" "}
 						<a
 							className="hover:underline"
 							target="_blank"

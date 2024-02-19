@@ -3,7 +3,7 @@
 import { usePlausible } from "next-plausible";
 import Image from "next/image";
 
-import TagList from "@/components/TagList";
+import TagList from "@/app/[locale]/components/TagList";
 import { ProjectElement, TagElement } from "@/lib/contentful/types";
 
 export default function Project({ project }: { project: ProjectElement }) {

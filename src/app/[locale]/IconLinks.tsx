@@ -29,7 +29,7 @@ export default function IconLinks({ about }: { about: About }) {
 			icon: <LinkedinIcon width={30} height={30} />,
 		},
 		{
-			title: "Email",
+			title: about?.emailText || "Email",
 			copy: about?.email,
 			href: "mailto:" + about?.email + "?subject=Hello!",
 			icon: <AtSign width={30} height={30} />,

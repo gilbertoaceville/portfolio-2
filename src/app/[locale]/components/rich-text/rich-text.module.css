@@ -1,3 +1,23 @@
+.rich-text__h1,
+.rich-text__h2 {
+	font-weight: bold;
+	margin: 8px 0;
+}
+
+.rich-text__h1 {
+	font-size: 28px;
+}
+
+.rich-text__h2 {
+	font-size: 24px;
+}
+
+.rich-text__h3 {
+	font-weight: 600;
+	font-size: 20px;
+	margin: 16px 0;
+}
+
 .rich-text__ordered-list,
 .rich-text__unordered-list {
 	list-style: none;

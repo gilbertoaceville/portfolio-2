@@ -9,5 +9,8 @@ export const projectsAdapter = ({ fields }: IPortfolioProjects): Projects => {
 		projects: fields?.projects
 			? fields.projects?.map(projectElementAdapter)
 			: [],
+		ctaLabel: fields.ctaLabel,
+		websiteLabel: fields.websiteLabel,
+		githubLabel: fields.githubLabel,
 	});
 };

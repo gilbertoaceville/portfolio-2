@@ -16,5 +16,6 @@ export const aboutAdapter = ({ fields }: IPortfolioAbout): About => {
 		email: fields.email,
 		linkedin: fields.linkedIn,
 		github: fields.github,
+		emailText: fields.emailText,
 	});
 };

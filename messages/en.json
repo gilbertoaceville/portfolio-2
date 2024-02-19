@@ -1,0 +1,19 @@
+{
+	"Contacts": {
+		"page_views": "Page Views",
+		"this_week": "this Week"
+	},
+	"NavBar": {
+		"eng_label": "English",
+		"esp_label": "Spanish",
+		"title": "Change Language"
+	},
+	"experiences": {
+		"present": "Present",
+		"services": "Services offered for -"
+	},
+	"projects": {
+		"view-website": "View Website",
+		"view-project": "View Project"
+	}
+}

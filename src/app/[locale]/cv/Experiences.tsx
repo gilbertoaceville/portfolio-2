@@ -2,11 +2,13 @@ import moment from "moment";
 
 import type { Experiences } from "@/lib/contentful/types";
 import { calculateTimeSpent } from "@/utils/helpers/calculateTimeSpent";
+import { getTranslations } from "next-intl/server";
 
 export default async function Experiences({
 	managementTitle,
 	experiences,
 }: Experiences) {
+	const t = await getTranslations("experiences");
 	return (
 		<div className="space-y-2 print:space-y-1">
 			<div className="text-xl font-semibold">{managementTitle}</div>
@@ -17,7 +19,7 @@ export default async function Experiences({
 					);
 					const endDate = experience?.endDate
 						? moment(experience?.endDate).format("MM/YYYY")
-						: "Present";
+						: t("present");
 
 					const timespent = calculateTimeSpent(
 						experience?.startDate,
@@ -27,7 +29,7 @@ export default async function Experiences({
 					return (
 						<div
 							key={`${experience?.title}-${i}`}
-							title={`Services offered for - ${timespent}`}
+							title={`${t("services")} ${timespent}`}
 						>
 							<div className="mb-2 font-medium">
 								{experience?.title}

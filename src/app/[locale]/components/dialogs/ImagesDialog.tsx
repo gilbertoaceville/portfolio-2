@@ -3,7 +3,7 @@
 import { usePlausible } from "next-plausible";
 import Image from "next/image";
 
-import ImageCard from "@/components/cards/ImageCard";
+import ImageCard from "@/app/[locale]/components/cards/ImageCard";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 import { ProjectElement } from "@/lib/contentful/types/project-element";
 

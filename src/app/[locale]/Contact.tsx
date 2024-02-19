@@ -1,14 +1,18 @@
 import SectionTitle from "./SectionTitle";
-import ContactForm from "@/components/Forms/ContactForm";
-import { Button } from "@/components/ui/button";
+import ContactForm from "@/app/[locale]/components/Forms/ContactForm";
+import { Button } from "@/app/[locale]/components/ui/button";
 import Link from "next/link";
 import PageViews from "./PageViews";
 import type { Contact } from "@/lib/contentful/types/contact";
+import { useLocale } from "next-intl";
+
 interface ContactProps {
 	contact: Contact;
 }
 
-export default async function Contact({ contact }: ContactProps) {
+export default function Contact({ contact }: ContactProps) {
+	const locale = useLocale();
+
 	const linkedInUsername = contact?.linkedIn
 		? contact.linkedIn.replace(/\/$/, "").split("/").pop()
 		: "";
@@ -28,7 +32,7 @@ export default async function Contact({ contact }: ContactProps) {
 					</div>
 					<div className="space-y-4">
 						<p>
-							Email:{" "}
+							{contact?.emailText || "Email"}:{" "}
 							<a
 								className="hover:underline"
 								href={
@@ -71,10 +75,10 @@ export default async function Contact({ contact }: ContactProps) {
 						size="sm"
 						variant="link"
 					>
-						<Link href="/cv">View my CV</Link>
+						<Link href={`/${locale}/cv`}>{contact?.ctaText}</Link>
 					</Button>
 				</div>
-				<ContactForm />
+				<ContactForm {...contact} />
 			</div>
 			<PageViews />
 		</section>
