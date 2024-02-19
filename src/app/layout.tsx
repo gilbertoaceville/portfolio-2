@@ -32,7 +32,7 @@ export default function RootLayout({
 		>
 			<head>
 				<PlausibleProvider
-					domain="jedwards.cc"
+					domain="gilbert-james.vercel.app"
 					trackOutboundLinks={true}
 					trackFileDownloads={true}
 				/>
