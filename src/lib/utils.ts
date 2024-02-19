@@ -26,7 +26,7 @@ export function invariant(
 
 export async function getPageViews(): Promise<number> {
 	const url = new URL("https://plausible.io/api/v1/stats/aggregate");
-	url.searchParams.set("site_id", "james-gilbert.vercel.app");
+	url.searchParams.set("site_id", "gilbert-james.vercel.app");
 	url.searchParams.set("period", "7d");
 
 	const res: {
