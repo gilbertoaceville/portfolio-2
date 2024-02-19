@@ -1,6 +1,12 @@
 {
-	"contacts": {
-		"cv-link": "Vera mis CV"
+	"Contacts": {
+		"page_views": "Vistas de página",
+		"this_week": "esta semana"
+	},
+	"NavBar": {
+		"eng_label": "Inglés",
+		"esp_label": "Español",
+		"title": "Cambiar idioma"
 	},
 	"experiences": {
 		"present": "Presente",

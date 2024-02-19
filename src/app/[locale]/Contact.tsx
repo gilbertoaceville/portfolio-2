@@ -4,14 +4,13 @@ import { Button } from "@/app/[locale]/components/ui/button";
 import Link from "next/link";
 import PageViews from "./PageViews";
 import type { Contact } from "@/lib/contentful/types/contact";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 
 interface ContactProps {
 	contact: Contact;
 }
 
 export default function Contact({ contact }: ContactProps) {
-	const t = useTranslations("contacts");
 	const locale = useLocale();
 
 	const linkedInUsername = contact?.linkedIn
