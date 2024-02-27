@@ -2,6 +2,7 @@
 
 import { Button } from "@/app/[locale]/components/ui/button";
 import { ExternalLinkIcon } from "lucide-react";
+import { useLocale } from "next-intl";
 import Link from "next/link";
 
 export default function DownloadResume({
@@ -9,10 +10,12 @@ export default function DownloadResume({
 }: {
 	downloadLabel: string;
 }) {
+	const locale = useLocale();
+
 	return (
 		<Button asChild className="!px-0" variant="link">
 			<Link
-				href="/resume"
+				href={`/${locale}/resume`}
 				target="_blank"
 				className="group inline-flex select-none gap-4 hover:underline"
 			>
