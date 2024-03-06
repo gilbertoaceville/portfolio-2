@@ -3,7 +3,7 @@ import Link from "next/link";
 import Contact from "./Contact";
 import ProjectsList from "./ProjectsList";
 import Intro from "./Intro";
-import { Button } from "@/app/[locale]/components/ui/button";
+import { Button } from "@/components/ui/button";
 import contentfulContentGateway from "@/lib/contentful";
 import {
 	Contact as ContactType,

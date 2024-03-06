@@ -1,6 +1,6 @@
 import moment from "moment";
-import TagList from "@/app/[locale]/components/TagList";
-import ProjectDialog from "@/app/[locale]/components/dialogs/ProjectDialog";
+import TagList from "@/components/TagList";
+import ProjectDialog from "@/components/dialogs/ProjectDialog";
 import type { Projects, TagElement } from "@/lib/contentful/types";
 
 export default async function Projects({
