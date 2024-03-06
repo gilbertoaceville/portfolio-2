@@ -3,8 +3,7 @@ import { Inter } from "next/font/google";
 import PlausibleProvider from "next-plausible";
 import clsx from "clsx";
 
-import "../styles.css";
-import NavBar from "../../components/nav-bar/nav-bar";
+import NavBar from "@/components/nav-bar/nav-bar";
 
 // export const runtime = "edge";
 // export const dynamic = "force-dynamic";
