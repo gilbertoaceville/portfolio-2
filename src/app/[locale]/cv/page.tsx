@@ -1,4 +1,4 @@
-import { Button } from "@/app/[locale]/components/ui/button";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Experiences from "./Experiences";
 import Projects from "./Projects";

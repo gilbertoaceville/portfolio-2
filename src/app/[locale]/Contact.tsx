@@ -1,6 +1,6 @@
 import SectionTitle from "./SectionTitle";
-import ContactForm from "@/app/[locale]/components/Forms/ContactForm";
-import { Button } from "@/app/[locale]/components/ui/button";
+import ContactForm from "@/components/Forms/ContactForm";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import PageViews from "./PageViews";
 import type { Contact } from "@/lib/contentful/types/contact";

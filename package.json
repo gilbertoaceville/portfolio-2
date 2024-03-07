@@ -9,6 +9,7 @@
 		"lint": "next lint",
 		"format": "prettier --write . --ignore-path .gitignore",
 		"test": "playwright test",
+		"contentful:export": "ts-node ./scripts/contentful/contentful-export.mjs",
 		"contentful-types": "contentful-typescript-codegen --output src/lib/contentful/types/contentful.d.ts"
 	},
 	"dependencies": {
@@ -20,7 +21,9 @@
 		"@radix-ui/react-hover-card": "^1.0.7",
 		"@radix-ui/react-label": "^2.0.2",
 		"@radix-ui/react-slot": "^1.0.2",
-		"ai": "^2.2.31",
+		"@vercel/kv": "^1.0.1",
+		"ai": "^2.2.37",
+		"axios": "^1.6.7",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.0",
 		"contentful": "^10.6.21",
@@ -29,8 +32,11 @@
 		"next": "^14.1.0",
 		"next-intl": "^3.7.0",
 		"next-plausible": "^3.12.0",
+		"openai": "^4.28.4",
 		"react": "^18",
 		"react-dom": "^18",
+		"react-markdown": "^9.0.1",
+		"stream-browserify": "^3.0.0",
 		"tailwind-merge": "^2.2.0",
 		"tailwindcss-animate": "^1.0.7"
 	},
@@ -40,15 +46,18 @@
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
 		"autoprefixer": "^10.4.16",
+		"contentful-export": "^7.19.132",
 		"contentful-management": "^11.16.0",
 		"contentful-typescript-codegen": "^3.4.0",
-		"dotenv": "^16.4.4",
+		"dotenv": "^16.4.5",
 		"eslint": "^8",
 		"eslint-config-next": "14.0.4",
+		"fs-extra": "^11.2.0",
 		"postcss": "^8",
 		"prettier": "^3.1.1",
 		"prettier-plugin-tailwindcss": "^0.5.10",
 		"tailwindcss": "^3.4.0",
+		"ts-node": "^10.9.2",
 		"typescript": "^5"
 	}
 }

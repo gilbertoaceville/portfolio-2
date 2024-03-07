@@ -7,12 +7,23 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
 import { Contact } from "@/lib/contentful/types";
+import { createContact } from "@/models/contact.server";
+import { revalidateAction } from "@/models/helpers";
 
 async function submitMessage(
 	p: any,
 	formData: FormData
 ): Promise<FormResponse> {
 	try {
+		await createContact({
+			name: String(formData.get("name")),
+			email: String(formData.get("email")),
+			message: String(formData.get("message")),
+			id: Date.now(),
+			createdAt: new Date(),
+			readAt: null,
+		});
+		revalidateAction();
 		return { success: "Message sent successfully!" };
 	} catch (e) {
 		return { error: String(e) };
