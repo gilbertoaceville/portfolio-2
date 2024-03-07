@@ -7,10 +7,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { createAdminSession } from "@/lib/session.server";
+import { useLocale } from "next-intl";
 
 export default function Page() {
 	const router = useRouter();
 	const pathname = usePathname();
+	const locale = useLocale();
 
 	async function loginAction(
 		p: any,
@@ -19,7 +21,7 @@ export default function Page() {
 		const password = String(formData.get("password"));
 
 		try {
-			await createAdminSession(password, "/admin");
+			await createAdminSession(password, `/${locale}/admin`);
 		} catch (error) {
 			return { error: String(error) };
 		}

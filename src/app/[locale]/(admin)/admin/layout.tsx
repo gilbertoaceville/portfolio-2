@@ -1,6 +1,7 @@
 import { type Metadata } from "next";
 import { Home, LogOut } from "lucide-react";
 import Link from "next/link";
+import { useLocale } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import AdminNav from "@/components/nav-bar/admin/nav";
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+	const locale = useLocale();
 	return (
 		<div className="mx-auto flex h-full flex-col gap-4 px-1 py-2 transition-all lg:p-2">
 			<div className="flex h-full flex-col gap-2 rounded-md border-border p-2 lg:border">
@@ -23,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 							</Link>
 						</Button>
 						<Button asChild variant="outline" size="icon">
-							<Link href="/logout">
+							<Link href={`/${locale}/logout`}>
 								<LogOut />
 							</Link>
 						</Button>

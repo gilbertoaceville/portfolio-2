@@ -1,38 +1,51 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
 import { checkAuthenticated } from "./lib/session.server";
+import { NextMiddleware } from "next/server";
 
-// middleware setup for internationalization
-const intlMiddleware = createIntlMiddleware({
-	locales: ["en", "es"],
-	defaultLocale: "en",
-});
+export type MiddlewareFactory = (middleware: NextMiddleware) => NextMiddleware;
 
-// middleware function for authentication
-async function authMiddleware(req: NextRequest) {
-	const authenticated = await checkAuthenticated();
+export const withAuthorization: MiddlewareFactory = next => {
+	return async (req: NextRequest, _next: NextFetchEvent) => {
+		const cookieLocale = req.cookies.get("NEXT_LOCALE");
+		const locale = cookieLocale?.value || "en";
 
-	if (!authenticated) {
-		return NextResponse.redirect("/login");
-	}
+		const authenticated = await checkAuthenticated();
 
-	return NextResponse.next();
-}
+		if (req.nextUrl.pathname.includes("login")) {
+			if (authenticated) {
+				return NextResponse.redirect(
+					new URL(`/${locale}/admin`, req.nextUrl)
+				);
+			}
+		}
 
-// Combined middleware function
-async function combinedMiddleware(req: NextRequest) {
-	const intlResponse = await intlMiddleware(req);
+		if (req.nextUrl.pathname.includes("logout")) {
+			if (!authenticated) {
+				return NextResponse.redirect(
+					new URL(`/${locale}/login`, req.nextUrl)
+				);
+			}
+		}
 
-	if (intlResponse) {
-		return intlResponse;
-	}
+		if (req.nextUrl.pathname.includes("admin")) {
+			if (!authenticated) {
+				return NextResponse.redirect(
+					new URL(`/${locale}/login`, req.nextUrl)
+				);
+			}
+		}
 
-	return authMiddleware(req);
-}
+		return next(req, _next);
+	};
+};
 
-export async function middleware(req: NextRequest) {
-	return combinedMiddleware(req);
-}
+export default withAuthorization(
+	createIntlMiddleware({
+		locales: ["en", "es"],
+		defaultLocale: "en",
+	})
+);
 
 export const config = {
 	matcher: ["/", "/(es|en)/:path*"],

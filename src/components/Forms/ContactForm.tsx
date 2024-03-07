@@ -7,7 +7,7 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
 import { Contact } from "@/lib/contentful/types";
-import { createContact } from "@/models/content.server";
+import { createContact } from "@/models/contact.server";
 import { revalidateAction } from "@/models/helpers";
 
 async function submitMessage(

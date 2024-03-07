@@ -34,13 +34,13 @@ export async function checkAuthenticated() {
 	return isAdmin?.value === ADMIN_SESSION_COOKIE_VALUE;
 }
 
-export async function requireAdminSession() {
+export async function requireAdminSession(locale = "en") {
 	if (!checkAuthenticated()) {
-		throw redirect("/login");
+		throw redirect(`/${locale}/login`);
 	}
 }
 
-export async function logoutAdminSession() {
+export async function logoutAdminSession(locale = "en") {
 	cookies().delete(ADMIN_SESSION_COOKIE_NAME);
-	redirect("/");
+	redirect(`/${locale}/login`);
 }
