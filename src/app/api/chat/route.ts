@@ -2,8 +2,9 @@ import type OpenAI from "openai";
 import { OpenAIStream, StreamingTextResponse } from "ai";
 
 import openai from "@/lib/openai";
-import { getAllData } from "@/models/data.server";
 import { NextResponse } from "next/server";
+import contentfulData from "../../../../exports/contentful/contentful-export-portfolio.json";
+import { getDataEntries } from "@/utils/helpers/getDataEntries";
 
 export const runtime = "edge";
 
@@ -17,18 +18,16 @@ export async function POST(request: Request) {
 	try {
 		const { messages } = (await request.json()) as ResponseMessages;
 
-		const { about, educations, experiences, projects } = await getAllData();
+		const { about, experiences } = getDataEntries(contentfulData);
 
 		const dataString = `I have these experiences: ${JSON.stringify(
-			experiences?.experiences
-		)}. And these are my projects: ${JSON.stringify(
-			projects?.projects
-		)}. And these are my educations: ${JSON.stringify(educations?.educations)}.\n\n`;
+			experiences
+		)}.\n\n`;
 
 		const systemInstruction: SystemMessage = {
 			role: "system",
 			content:
-				`You are a helpful assistant for ${about?.name}. Here's some information about them: ${about?.description}.\n\n` +
+				`You are a helpful assistant for ${about?.name}. Here's some information about them: with title ${about.title} and ${about?.description}.\n\n` +
 				dataString +
 				"Responses should be technical.",
 		};

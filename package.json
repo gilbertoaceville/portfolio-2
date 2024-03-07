@@ -9,6 +9,7 @@
 		"lint": "next lint",
 		"format": "prettier --write . --ignore-path .gitignore",
 		"test": "playwright test",
+		"contentful:export": "ts-node ./scripts/contentful/contentful-export.mjs",
 		"contentful-types": "contentful-typescript-codegen --output src/lib/contentful/types/contentful.d.ts"
 	},
 	"dependencies": {
@@ -45,15 +46,18 @@
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
 		"autoprefixer": "^10.4.16",
+		"contentful-export": "^7.19.132",
 		"contentful-management": "^11.16.0",
 		"contentful-typescript-codegen": "^3.4.0",
-		"dotenv": "^16.4.4",
+		"dotenv": "^16.4.5",
 		"eslint": "^8",
 		"eslint-config-next": "14.0.4",
+		"fs-extra": "^11.2.0",
 		"postcss": "^8",
 		"prettier": "^3.1.1",
 		"prettier-plugin-tailwindcss": "^0.5.10",
 		"tailwindcss": "^3.4.0",
+		"ts-node": "^10.9.2",
 		"typescript": "^5"
 	}
 }
