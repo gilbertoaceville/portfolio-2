@@ -27,7 +27,7 @@ export default function ProjectCard({
 	return (
 		<div className="flex w-full max-w-7xl flex-col pb-4 sm:px-4">
 			{/* Title - Client - Year */}
-			<div className="mb-4 flex w-full flex-col gap-2 sm:flex-row md:gap-4">
+			<div className="mb-4 flex w-full flex-col gap-2 md:gap-4">
 				{images?.length > 0 && (
 					<ImagesDialog
 						project={project}
@@ -60,29 +60,31 @@ export default function ProjectCard({
 						<div className="text-foreground/70">{date}</div>
 					</div>
 
-					{/* Project Link */}
-					{project?.webUrl && (
-						<a
-							href={project.webUrl}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="flex gap-1 text-neutral-600 hover:underline dark:text-neutral-300"
-						>
-							<ExternalLink /> {websiteLabel}
-						</a>
-					)}
+					<div className="my-4 flex flex-row gap-5">
+						{/* Project Link */}
+						{project?.webUrl && (
+							<a
+								href={project.webUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex gap-1 text-sky-800 hover:underline"
+							>
+								<ExternalLink /> {websiteLabel}
+							</a>
+						)}
 
-					{/* Github Link */}
-					{project?.githubUrl && (
-						<a
-							href={project.githubUrl}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="flex gap-1 text-neutral-600 hover:underline dark:text-neutral-300"
-						>
-							<Github /> {githubLabel}
-						</a>
-					)}
+						{/* Github Link */}
+						{project?.githubUrl && (
+							<a
+								href={project.githubUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="hover:underlin flex gap-1 text-teal-800"
+							>
+								<Github /> {githubLabel}
+							</a>
+						)}
+					</div>
 
 					{/* Tags */}
 					<TagList tags={project.tags as TagElement[]} />
