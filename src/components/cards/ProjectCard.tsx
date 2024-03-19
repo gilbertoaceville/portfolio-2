@@ -67,7 +67,7 @@ export default function ProjectCard({
 								href={project.webUrl}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="flex gap-1 text-sky-800 hover:underline"
+								className="flex gap-1 text-sky-500 hover:underline dark:text-sky-300"
 							>
 								<ExternalLink /> {websiteLabel}
 							</a>
@@ -79,7 +79,7 @@ export default function ProjectCard({
 								href={project.githubUrl}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="hover:underlin flex gap-1 text-teal-800"
+								className="hover:underlin flex gap-1 text-teal-500 dark:text-teal-300"
 							>
 								<Github /> {githubLabel}
 							</a>
