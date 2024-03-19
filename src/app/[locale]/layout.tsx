@@ -4,6 +4,8 @@ import PlausibleProvider from "next-plausible";
 import clsx from "clsx";
 
 import NavBar from "@/components/nav-bar/nav-bar";
+import { Providers } from "@/providers/providers";
+import ThemeToggle from "@/components/theme-toggle/theme-toggle";
 
 // export const runtime = "edge";
 // export const dynamic = "force-dynamic";
@@ -31,6 +33,7 @@ export default function RootLayout({
 		<html
 			lang={locale}
 			className="h-full w-full scroll-smooth bg-background text-foreground transition-all"
+			suppressHydrationWarning
 		>
 			<head>
 				<PlausibleProvider
@@ -45,8 +48,13 @@ export default function RootLayout({
 					inter.className
 				)}
 			>
-				<NavBar />
-				{children}
+				<Providers>
+					<div className="fixed bottom-8 right-8 z-50 sm:bottom-12">
+						<ThemeToggle />
+					</div>
+					<NavBar />
+					{children}
+				</Providers>
 			</body>
 		</html>
 	);
