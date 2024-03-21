@@ -1,5 +1,4 @@
 const { PHASE_PRODUCTION_BUILD } = require("next/constants");
-const { withPlausibleProxy } = require("next-plausible");
 const createNextIntlPlugin = require("next-intl/plugin");
 
 const withNextIntl = createNextIntlPlugin();
@@ -33,4 +32,4 @@ const nextConfig = withNextIntl({
 	},
 });
 
-module.exports = withPlausibleProxy()(nextConfig);
+module.exports = nextConfig;

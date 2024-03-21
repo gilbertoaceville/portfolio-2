@@ -1,26 +1,23 @@
 "use client";
 
 import { ProjectElement } from "@/lib/contentful/types/project-element";
+import { track } from "@vercel/analytics/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { usePlausible } from "next-plausible";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function ImageCard({ project }: { project: ProjectElement }) {
-	const plausible = usePlausible();
 	const [idx, setIdx] = useState(0);
 
 	const next = () => setIdx(idx < project.images.length - 1 ? idx + 1 : 0);
 	const prev = () => setIdx(idx > 0 ? idx - 1 : project.images.length - 1);
 
 	useEffect(() => {
-		plausible("Image", {
-			props: {
-				project: project.title,
-				image: project.images[idx],
-			},
+		track("Image", {
+			project: project.title,
+			image: project.images[idx].url,
 		});
-	}, [idx, plausible, project.images, project.title]);
+	}, [idx, project.images, project.title]);
 
 	return (
 		<div className="relative flex h-auto select-none items-center justify-center overflow-x-hidden">

@@ -1,11 +1,11 @@
 "use client";
 
-import { usePlausible } from "next-plausible";
 import Image from "next/image";
 
 import ImageCard from "@/components/cards/ImageCard";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 import { ProjectElement } from "@/lib/contentful/types/project-element";
+import { track } from "@vercel/analytics/react";
 
 export default function ImagesDialog({
 	project,
@@ -16,13 +16,9 @@ export default function ImagesDialog({
 	src: string;
 	alt: string;
 }) {
-	const plausible = usePlausible();
-
 	const openImageModal = () =>
-		plausible("View Project Image", {
-			props: {
-				project: project.title,
-			},
+		track("View Project Image", {
+			project: project.title,
 		});
 
 	return (
