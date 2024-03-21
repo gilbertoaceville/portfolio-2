@@ -2,7 +2,6 @@ import SectionTitle from "./SectionTitle";
 import ContactForm from "@/components/Forms/ContactForm";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import PageViews from "./PageViews";
 import type { Contact } from "@/lib/contentful/types/contact";
 import { useLocale } from "next-intl";
 
@@ -80,7 +79,6 @@ export default function Contact({ contact }: ContactProps) {
 				</div>
 				<ContactForm {...contact} />
 			</div>
-			<PageViews />
 		</section>
 	);
 }
