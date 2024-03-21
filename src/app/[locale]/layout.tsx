@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import PlausibleProvider from "next-plausible";
+import { Analytics } from "@vercel/analytics/react";
 import clsx from "clsx";
 
 import NavBar from "@/components/nav-bar/nav-bar";
@@ -35,13 +35,7 @@ export default function RootLayout({
 			className="h-full w-full scroll-smooth bg-background text-foreground transition-all"
 			suppressHydrationWarning
 		>
-			<head>
-				<PlausibleProvider
-					domain="gilbert-james.vercel.app"
-					trackOutboundLinks={true}
-					trackFileDownloads={true}
-				/>
-			</head>
+			<head />
 			<body
 				className={clsx(
 					"relative mx-auto h-full w-full max-w-10xl",
@@ -54,6 +48,7 @@ export default function RootLayout({
 					</div>
 					<NavBar />
 					{children}
+					<Analytics />
 				</Providers>
 			</body>
 		</html>

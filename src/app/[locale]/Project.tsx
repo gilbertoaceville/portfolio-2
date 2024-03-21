@@ -1,22 +1,18 @@
 "use client";
 
-import { usePlausible } from "next-plausible";
 import Image from "next/image";
 
 import TagList from "@/components/TagList";
 import { ProjectElement, TagElement } from "@/lib/contentful/types";
+import { track } from "@vercel/analytics/react";
 
 export default function Project({ project }: { project: ProjectElement }) {
-	const plausible = usePlausible();
-
 	return (
 		<div
 			onClick={() =>
-				plausible("View Project", {
-					props: {
-						project: project?.title,
-						showCase: true,
-					},
+				track("View Project", {
+					project: project?.title,
+					showCase: true,
 				})
 			}
 			className="flex h-full w-full cursor-pointer flex-col gap-2 rounded p-2 text-left text-neutral-500 transition-all hover:scale-105 hover:bg-neutral-200/50 dark:text-neutral-400 hover:dark:bg-neutral-800"
