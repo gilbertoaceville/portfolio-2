@@ -16,10 +16,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
 	title: {
-		template: "%s | Gilbert James",
-		default: "Gilbert James",
+		template: "%s | A C (Gilbert James) E",
+		default: "A C (Gilbert James) E",
 	},
-	description: "Personal Website for Gilbert James",
+	description: "Personal Website for A C (Gilbert James) E",
 };
 
 export default function RootLayout({
